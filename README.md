@@ -1,4 +1,4 @@
-# CypherSafe Password Generator and Secure Storage App
+# CypherSafe Password Generator and Secure Login Storage App
 
 A simple and secure password manager application that allows users to store and encrypt their login information. Built with C#, this application features AES encryption to allow secure storage of passwords on your device. The encryption keys for storing login information are based off a user set password for the application, meaning that anyone with unauthorized access
 to your device would need your CypherSafe password to access your login information. Passwords are generated with crytographically secure RNG algorithms, meaning no one will be able to recreate your generated password. This project was done as a side project by a university student, so there may be some bugs.
