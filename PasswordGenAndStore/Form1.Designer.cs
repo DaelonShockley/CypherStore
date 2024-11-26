@@ -55,7 +55,7 @@
             LwcsChar_ChkBx = new CheckBox();
             label1 = new Label();
             PswrdSto_tab = new TabPage();
-            DelRow_Btn = new Button();
+            button1 = new Button();
             SaveChanges_Btn = new Button();
             AddPass_Btn = new Button();
             InfoGrid_Grd = new DataGridView();
@@ -323,7 +323,7 @@
             // 
             // PswrdSto_tab
             // 
-            PswrdSto_tab.Controls.Add(DelRow_Btn);
+            PswrdSto_tab.Controls.Add(button1);
             PswrdSto_tab.Controls.Add(SaveChanges_Btn);
             PswrdSto_tab.Controls.Add(AddPass_Btn);
             PswrdSto_tab.Controls.Add(InfoGrid_Grd);
@@ -335,15 +335,15 @@
             PswrdSto_tab.Text = "Saved Logins";
             PswrdSto_tab.UseVisualStyleBackColor = true;
             // 
-            // DelRow_Btn
+            // button1
             // 
-            DelRow_Btn.Location = new Point(518, 8);
-            DelRow_Btn.Name = "DelRow_Btn";
-            DelRow_Btn.Size = new Size(118, 23);
-            DelRow_Btn.TabIndex = 3;
-            DelRow_Btn.Text = "Delete Row";
-            DelRow_Btn.UseVisualStyleBackColor = true;
-            DelRow_Btn.Click += DelRow_Btn_Click;
+            button1.Location = new Point(518, 8);
+            button1.Name = "button1";
+            button1.Size = new Size(118, 23);
+            button1.TabIndex = 4;
+            button1.Text = "Delete Row";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // SaveChanges_Btn
             // 
@@ -468,6 +468,6 @@
         private DataGridViewTextBoxColumn LstEdit_Clm;
         private Button AddPass_Btn;
         private Button SaveChanges_Btn;
-        private Button DelRow_Btn;
+        private Button button1;
     }
 }

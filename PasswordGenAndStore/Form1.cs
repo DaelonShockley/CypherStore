@@ -23,9 +23,6 @@ namespace PasswordGenAndStore
 
             InitializeComponent();
 
-            // Attach the event handler for the delete button
-            DelRow_Btn.Click += DelRow_Btn_Click;
-
             // Attach the key down event for detecting Delete key press
             InfoGrid_Grd.KeyDown += InfoGrid_Grd_KeyDown;
 
@@ -596,48 +593,12 @@ namespace PasswordGenAndStore
             }
         }
 
-        private void DelRow_Btn_Click(object sender, EventArgs e)
-        {
-            if (InfoGrid_Grd.SelectedRows.Count > 0)
-            {
-                // Get the index of the selected row
-                int rowIndex = InfoGrid_Grd.SelectedRows[0].Index;
-
-                // Check if the rowIndex is within valid bounds
-                if (rowIndex >= 0 && rowIndex < loginInfo.Count)
-                {
-                    // Ask the user to confirm the deletion
-                    var result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Delete", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        // Remove the row from the DataGridView
-                        InfoGrid_Grd.Rows.RemoveAt(rowIndex);
-
-                        // Remove the corresponding entry from loginInfo
-                        loginInfo.RemoveAt(rowIndex);
-
-                        // Save the changes to the file
-                        WriteToFile();
-
-                        // Optional: Refresh the grid (in case you want to reinitialize it)
-                        InitializePasswordGrid();
-
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.");
-            }
-        }
-
         private void InfoGrid_Grd_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
                 // Call the delete function when Delete key is pressed
-                DelRow_Btn_Click(sender, e);
+                button1_Click(sender, e);
             }
         }
 
@@ -746,6 +707,44 @@ namespace PasswordGenAndStore
             {
                 MessageBox.Show("IV file not found.");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (InfoGrid_Grd.SelectedRows.Count > 0)
+            {
+                // Get the index of the selected row
+                int rowIndex = InfoGrid_Grd.SelectedRows[0].Index;
+
+                // Check if the rowIndex is within valid bounds
+                if (rowIndex >= 0 && rowIndex < loginInfo.Count)
+                {
+                    // Ask the user to confirm the deletion
+                    var result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Delete", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        // Remove the row from the DataGridView
+                        InfoGrid_Grd.Rows.RemoveAt(rowIndex);
+
+                        // Remove the corresponding entry from loginInfo
+                        loginInfo.RemoveAt(rowIndex);
+
+                        // Save the changes to the file
+                        WriteToFile();
+
+                        // Optional: Refresh the grid (in case you want to reinitialize it)
+                        InitializePasswordGrid();
+
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.");
+            }
+
+            return;
         }
     }
 }
